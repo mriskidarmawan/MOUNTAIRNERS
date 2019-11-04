@@ -1,3 +1,4 @@
+
 html,body{
 	padding: 0;
 	margin: 0;
@@ -94,11 +95,11 @@ li.dropdown {
 		margin-bottom: 35px;
 	}
 
-	#icon_menu{
-		display: block;
-		/*float: left;*/
-		width: 100%;
-	}
+	 #icon_menu{
+	 	display: block;
+	 	/*float: left;*/
+	 	width: 100%;
+	 }
 }
 
 @media screen and (max-width: 768px){
@@ -134,9 +135,9 @@ li.dropdown {
 
 	}
 	.toRight{
-		float: left;
-		margin-right: 5%;
-	}
+	float: left;
+	margin-right: 5%;
+}
 }
 
 .judul{
@@ -323,21 +324,9 @@ table tr{
 }
 footer {
 	background-color: #E6E6E6;
-	/*margin-top: 700px;*/
-	margin-top: 60%;
+	margin-top: 700px;
 
-}
-.bgft {
-	background-color: #E6E6E6;
 }
 .text-footer {
-	margin-left: 5%;
-	font-size: 12px;
+	margin: : 5%;
 }
-.hc-button {
-	margin-bottom: 40px;
-	padding: 20px;
-	margin-top: 20px;
-	width: 100%
-}
-

@@ -55,10 +55,7 @@
 						<option value="">Body Pack</option>
 					</select>
 				</div><br>
-				<div>
-					<label>Masukkan Gambar Produk</label><br>
-					<input type="file" id="file_gambar" name="file_gambar">
-				</div><br>
+				
 				<div>
 					<label>Jumlah Produk</label><br>
 					<input type="number" name="" min="1">
@@ -75,9 +72,63 @@
 					<label>Berat Produk</label><br>
 					<input type="number" name="" min="0">
 				</div><br>
+				<div>
+						<label>Masukkan Gambar Produk</label><br>
+						<div class="Tambahgbr">
+							<input type="file" id="imgUpload">
+						</div>
+						<div id="imgPreview" class="thumbnail" style="display:none">
+							<img class="img-responsive" id="targetImg" /> 
+							<div class="caption">
+								<span id="description"></span>
+							</div>
+						</div>	
+	
+				</div><br>
+				
 				<button class="pilihan">Selesai</button><button class="pilihan">Batal</button>
 			</form>
 
 		</div>
 	</body>
+	<script src="js/jQuery.js"></script>
+	<script>
+		$(document).ready(function(){
+		   $("#imgUpload").change(function(){
+			   var File = this.files;
+   
+			 if(File && File[0]){
+			   ReadImage(File[0]);
+			   }
+		 
+		   })
+		 })
+   
+	 var ReadImage=function(file){
+	   var reader = new FileReader;
+	   var image = new Image;
+   
+	   reader.readAsDataURL(file);
+	   reader.onload= function(_file){
+   
+		 image.src=_file.target.result;
+		 image.onload=function(){
+   
+		   var height = this.height;
+		   var width = this.width;
+		   var type = file.type;
+		   var size = ~~(file.size / 1024) + "KB";
+   
+			 
+		   $("#targetImg").attr('src',_file.target.result);
+		   $("#description").text("Size:" + size + ", " + height + " X " + width + ", " + type + "");
+		   $("#imgPreview").show();
+   
+		 }
+   
+   
+	   }
+   
+	 }
+	 </script>
 	</html>
