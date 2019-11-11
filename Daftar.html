@@ -7,7 +7,7 @@
 <body style="padding-top: 2%">
 	<center><h2>DAFTAR</h2></center>
 	<div class="daftar">
-		<form action="index.html" method="POST" onSubmit="validasi()">
+		<form class="myForm" action="index.html" method="POST" onSubmit="validasi()">
 			<div>
 				<label>Nama:</label>
 				<input type="text" name="nama" id="nama" />
@@ -53,15 +53,33 @@
 	</div>
 </body>
 <script type="text/javascript">
-	function validasi() {
-		var Password = document.getElementById("Password").value;
-		var email = document.getElementById("email").value;
-		if (Password != "" && email!="") {
-			alert('Anda harus mengisi data dengan lengkap !');
-		}else if(Password != "12345678" && email!="rizky@gmail.com"){
-			alert('Password atau email salah');
-		}
-		else{
+	// function validasi() {
+	// 	var Password = document.getElementById("Password").value;
+	// 	var email = document.getElementById("email").value;
+	// 	if (Password != "" && email!="") {
+	// 		alert('Anda harus mengisi data dengan lengkap !');
+	// 	}else if(Password != "12345678" && email!="rizky@gmail.com"){
+	// 		alert('Password atau email salah');
+	// 	}
+	// 	else{
+	// 		return true;
+	// 	}
+	// }
+	$(document).ready(function){
+		console.log('document ready');
+		$('#myForm').on('submit', function(ev)){
+			ev.stopPropagation();
+			console.log('#myForm');
+			let namaE1 = $('#nama');
+			let msg = $('<label/>');
+			if(namaE1.val()==""){
+				msg.html('Isi nama');
+				namaE1.parent().append(msg);
+				setTimeout(function(){
+					msg.remove();
+				}, 5000);
+				return false;
+			}
 			return true;
 		}
 	}
