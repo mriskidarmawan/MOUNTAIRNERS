@@ -73,6 +73,7 @@
 					<input type="number" name="" min="0">
 				</div><br>
 				<div>
+<<<<<<< HEAD
 					<label>Masukkan Gambar</label><br>
 					<input type="file" name="" id="upload_img"><br><span class="ket">Masukkan File</span><br>
 					<div id="preview" style="display: none;">
@@ -88,10 +89,27 @@
 					<input type="submit" value="Selesai" class="pilihan">
 				</div>
 				<button class="pilihan">Batal</button>
+=======
+						<label>Masukkan Gambar Produk</label><br>
+						<div class="Tambahgbr">
+							<input type="file" id="imgUpload">
+						</div>
+						<div id="imgPreview" class="thumbnail" style="display:none">
+							<img class="img-responsive" id="targetImg" /> 
+							<div class="caption">
+								<span id="description"></span>
+							</div>
+						</div>	
+	
+				</div><br>
+				
+				<button class="pilihan">Selesai</button><button class="pilihan">Batal</button>
+>>>>>>> 6f9c2e9e58a1700dfb6c3f2387d14374980b36ac
 			</form>
 
 		</div>
 	</body>
+<<<<<<< HEAD
 	<script src="js/jquery-3.3.1.min.js"></script>
 	<script src="js/main_script.js"></script>
 	<script type="text/javascript">
@@ -102,4 +120,46 @@
 		</script>
 
 
+=======
+	<script src="js/jQuery.js"></script>
+	<script>
+		$(document).ready(function(){
+		   $("#imgUpload").change(function(){
+			   var File = this.files;
+   
+			 if(File && File[0]){
+			   ReadImage(File[0]);
+			   }
+		 
+		   })
+		 })
+   
+	 var ReadImage=function(file){
+	   var reader = new FileReader;
+	   var image = new Image;
+   
+	   reader.readAsDataURL(file);
+	   reader.onload= function(_file){
+   
+		 image.src=_file.target.result;
+		 image.onload=function(){
+   
+		   var height = this.height;
+		   var width = this.width;
+		   var type = file.type;
+		   var size = ~~(file.size / 1024) + "KB";
+   
+			 
+		   $("#targetImg").attr('src',_file.target.result);
+		   $("#description").text("Size:" + size + ", " + height + " X " + width + ", " + type + "");
+		   $("#imgPreview").show();
+   
+		 }
+   
+   
+	   }
+   
+	 }
+	 </script>
+>>>>>>> 6f9c2e9e58a1700dfb6c3f2387d14374980b36ac
 	</html>

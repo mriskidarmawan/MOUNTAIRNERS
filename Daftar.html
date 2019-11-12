@@ -7,7 +7,11 @@
 <body style="padding-top: 2%">
 	<center><h2>DAFTAR</h2></center>
 	<div class="daftar">
+<<<<<<< HEAD
 		<form class="form" action="index.html" >
+=======
+		<form class="myForm" action="index.html" method="POST" onSubmit="validasi()">
+>>>>>>> 6f9c2e9e58a1700dfb6c3f2387d14374980b36ac
 			<div>
 				<label>Nama:</label>
 				<input type="text" name="nama" id="nama" />
@@ -69,7 +73,28 @@
 	// 		return true;
 	// 	}
 	// }
+<<<<<<< HEAD
 	$("form").validateEmpty();
+=======
+	$(document).ready(function){
+		console.log('document ready');
+		$('#myForm').on('submit', function(ev)){
+			ev.stopPropagation();
+			console.log('#myForm');
+			let namaE1 = $('#nama');
+			let msg = $('<label/>');
+			if(namaE1.val()==""){
+				msg.html('Isi nama');
+				namaE1.parent().append(msg);
+				setTimeout(function(){
+					msg.remove();
+				}, 5000);
+				return false;
+			}
+			return true;
+		}
+	}
+>>>>>>> 6f9c2e9e58a1700dfb6c3f2387d14374980b36ac
 </script>
 
 </html>
