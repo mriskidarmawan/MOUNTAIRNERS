@@ -55,10 +55,7 @@
 						<option value="">Body Pack</option>
 					</select>
 				</div><br>
-				<div>
-					<label>Masukkan Gambar Produk</label><br>
-					<input type="file" id="file_gambar" name="file_gambar">
-				</div><br>
+				
 				<div>
 					<label>Jumlah Produk</label><br>
 					<input type="number" name="" min="1">
@@ -75,9 +72,34 @@
 					<label>Berat Produk</label><br>
 					<input type="number" name="" min="0">
 				</div><br>
-				<button class="pilihan">Selesai</button><button class="pilihan">Batal</button>
+				<div>
+					<label>Masukkan Gambar</label><br>
+					<input type="file" name="" id="upload_img"><br><span class="ket">Masukkan File</span><br>
+					<div id="preview" style="display: none;">
+						<img src="">
+						<br>
+						<div id="file_info">
+
+						</div>
+					</div>
+
+				</div><br>
+				<div>
+					<input type="submit" value="Selesai" class="pilihan">
+				</div>
+				<button class="pilihan">Batal</button>
 			</form>
 
 		</div>
 	</body>
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/main_script.js"></script>
+	<script type="text/javascript">
+		$("form").validateEmpty();
+	</script>
+	<script>
+			$("#upload_img").uploadImage();
+		</script>
+
+
 	</html>

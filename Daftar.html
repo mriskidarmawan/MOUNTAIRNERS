@@ -7,7 +7,7 @@
 <body style="padding-top: 2%">
 	<center><h2>DAFTAR</h2></center>
 	<div class="daftar">
-		<form action="index.html" method="POST" onSubmit="validasi()">
+		<form class="form" action="index.html" >
 			<div>
 				<label>Nama:</label>
 				<input type="text" name="nama" id="nama" />
@@ -47,24 +47,29 @@
 			</div>
 			<br>
 			<div>
-				<input type="submit" value="Masuk" class="tombol">
+				<input type="submit" value="Daftar" class="tombol">
 			</div>
+			
 		</form>
 	</div>
 </body>
+
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/main_script.js"></script>
 <script type="text/javascript">
-	function validasi() {
-		var Password = document.getElementById("Password").value;
-		var email = document.getElementById("email").value;
-		if (Password != "" && email!="") {
-			alert('Anda harus mengisi data dengan lengkap !');
-		}else if(Password != "12345678" && email!="rizky@gmail.com"){
-			alert('Password atau email salah');
-		}
-		else{
-			return true;
-		}
-	}
+	// function validasi() {
+	// 	var Password = document.getElementById("Password").value;
+	// 	var email = document.getElementById("email").value;
+	// 	if (Password != "" && email!="") {
+	// 		alert('Anda harus mengisi data dengan lengkap !');
+	// 	}else if(Password != "12345678" && email!="rizky@gmail.com"){
+	// 		alert('Password atau email salah');
+	// 	}
+	// 	else{
+	// 		return true;
+	// 	}
+	// }
+	$("form").validateEmpty();
 </script>
 
 </html>
