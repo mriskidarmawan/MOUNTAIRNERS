@@ -45,7 +45,7 @@
 			<a href="Tas.html"><button class="button">Ransel</button></a><br><br>
 		</div>
 		<div class="content-right">
-			<div class="img_wrapper">
+			<div class="img_wrapper" id="list_barang" halaman="0">
 				<img src="pic/tas.jpg">
 				<hr>
 				<div class="item">
@@ -108,11 +108,56 @@
 						<a href="detail.html"><button class="detail">Detail</button></a>
 					</center>
 				</div>
+
+				<button id="more_btn">More</button>
 			</div>
 		</div>
 	</div>
 	<script src="js/jquery-3.3.1.min.js"></script>
 	<script src="js/top_menu.js"></script>
+	<script type="text/javascript">
+		$("#more_btn").click(function () {
+			var halaman = $("#list_barang").attr("halaman");
+			halaman = Number(halaman);
+			halaman += 1;
+			$("#list_barang").attr("halaman", halaman);
+
+			if(halaman == 1){ //ganti sesuai jumlah json
+				$("#more_btne").hide();
+			}
+
+			var url = "json/baju_"+halaman+".json"; 
+
+			$.ajax({
+				url: url,
+				type: 'GET',
+				dataType: 'json'
+			})
+			.done(function (baju) {
+				console.log("sukses");
+				var append = "";
+				$.each(baju, function (index, val) {
+					append += `
+						<div class="item">
+							<div class="item_img">
+								<img src="`+val.gambar+`">
+							</div>
+							<center>
+								`+val.harga+`<br>
+								<a href="Keranjang.html"><button class="keranjang">Keranjang</button></a>
+								<a href="detail.html"><button class="detail">Detail</button></a>
+							</center>
+						</div>
+					`;
+				});
+				$("#list_barang").append(append);
+			})
+			.fail(function () {
+				console.log("error");
+			});
+			
+		});
+	</script>
 
 </body>
 
