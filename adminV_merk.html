@@ -4,6 +4,7 @@
 	<title>Data Merk</title>
 	<link rel="stylesheet" type="text/css" href="admin.css">
 	<link rel="stylesheet" type="text/css" href="file.css">
+	<link rel="stylesheet" type="text/css" href="modal.css">
 </head>
 <body class="bg">
 	<header class="header">
@@ -35,7 +36,7 @@
 		</div>
 		<div class="content-right">
 			<div>
-				<a href="adminC_merk.html"><button class="pilihan">Tambah</button></a>
+				<button id="open_modal" class="pilihan">Tambah</button>
 				<br><br>
 				<table>
 					<tr>
@@ -63,5 +64,51 @@
 			</div>
 
 		</div>
+
+		<div class="modal" id="id_modal">
+			<form class="modal-content">
+				<div class="modal-top">
+					<span class="modal-close"><i class="fa fa-times"></i></span>
+					<h3>Tambah Data</h3>
+				</div>
+
+				<div class="modal-middle">
+					<div>
+						<label>Nama Merk</label><br>
+						<input type="text" name="">
+					</div><br>
+					<div>
+						<label>Rincian</label><br>
+						<textarea></textarea>
+					</div><br>
+				</div>
+
+				<div class="modal-bottom">
+					<button class="pilihan">Simpan</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/modal.js"></script>
+	<script type="text/javascript">
+		$("#open_modal").click(function(event) {
+			event.preventDefault();
+			modalShow();
+			
+			$(".modal-close").click(function(event) {
+				modalHide();
+			});
+
+			window.onclick = function(event) {
+				var modal = document.getElementById('id_modal');
+				if(event.target == modal){
+					modalHide();
+				}
+			};
+			
+		});
+	</script>
 	</body>
 	</html>
