@@ -38,9 +38,13 @@
 		if (Password == "" && email =="") {
 			alert('Anda harus mengisi data dengan lengkap !');
 		}
+		else if(Password == "admin" && email == "admin@gmail.com"){
+			window.location = 'admin_beranda.html';
+		}
 		else if(Password != "12345678" && email!="rizky@gmail.com"){
 			alert('Password atau email salah');
 		}
+		
 		else{
 			$(this).off('click').trigger('click');
 		}

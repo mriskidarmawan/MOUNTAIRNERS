@@ -8,6 +8,8 @@ html,body{
 .main-content{
 	margin-right: 6%;
 	margin-left: 6%;
+	height: auto;
+	padding: 30px 5px;
 }
 
 #icon_menu{
@@ -303,8 +305,9 @@ table tr{
 	border : none;
 	text-align: left;
 	padding: 30%;
-	background-color: #313131;
+	background-color: ;
 	border-radius: 0px
+	color: white;
 }
 
 .datadiri td{
@@ -324,9 +327,13 @@ table tr{
 }
 footer {
 	background-color: #E6E6E6;
-	margin-top: 700px;
-
+	display: block;
+	padding: 20px 100px;
 }
 .text-footer {
 	margin: : 5%;
+}
+
+.inline-block {
+	display: inline-block;
 }
