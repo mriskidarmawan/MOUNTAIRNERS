@@ -337,3 +337,11 @@ footer {
 .inline-block {
 	display: inline-block;
 }
+#more_btn {
+	background-color: red;
+	color: white;
+	font-weight: bold;
+	padding: 5px 30px;
+	width: 100%;
+	text-align: center;
+}
