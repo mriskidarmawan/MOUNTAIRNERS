@@ -60,9 +60,11 @@
 		<input type="date" name="" class="bayar"><br><span class="ket">sesuai dengan bukti pembayaran</span>
 		<br><br>
 		<label>Upload Bukti Pembayaran</label><br>
-		<input type="file" name="" id="upload_img"><br><span class="ket">Masukkan File</span><br>
+		<input type="file" id="upload_img" style="display: none;"/><br>
+		<button id="OpenImgUpload">Image Upload</button>
+		<span class="ket">Masukkan File</span><br>
 		<div id="preview" style="display: none;">
-			<img src="">
+			<img id="previewImg" src="" style="cursor: pointer;">
 			<br>
 			<div id="file_info">
 				
@@ -77,6 +79,17 @@
 		</script>
 		<script type="text/javascript">
 			$("form").validateEmpty();
+			
+		</script>
+		<script type="text/javascript">
+			$('#OpenImgUpload').click(function(){ 
+				$('#upload_img').trigger('click');
+				// $('#OpenImgUpload').hide();
+
+				// $("#previewImg").click(function (argument) {
+				// 	$('#upload_img').trigger('click');
+				// });
+			});
 		</script>
 	</body>
 	</html>

@@ -5,6 +5,13 @@
 	<link rel="stylesheet" type="text/css" href="admin.css">
 	<link rel="stylesheet" type="text/css" href="file.css">
 	<link rel="stylesheet" type="text/css" href="modal.css">
+
+	<style type="text/css">
+		#table_merk tr:nth-child(odd){
+			background-color: lightblue;
+			
+		}
+	</style>
 </head>
 <body class="bg">
 	<header class="header">
@@ -35,10 +42,10 @@
 			<a href="adminV_rekening.html"><button class="button" class="button">Data Rekening</button></a>
 		</div>
 		<div class="content-right">
-			<div>
+			<div id="wrap1">
 				<button id="open_modal" class="pilihan">Tambah</button>
 				<br><br>
-				<table>
+				<table id="table_merk">
 					<tr>
 						<th>Kode Merk Barang</th>
 						<th>Nama Merk</th>
@@ -46,18 +53,27 @@
 						<th>Aksi</th>
 					</tr>
 					<tr>
-						<td>01</td>
+						<td>1</td>
 						<td>Consina</td>
+						<td>ini rincian</td>
 						<td><button class="edit">Edit</button><button class="checkout">Delete</button></td>
 					</tr>
 					<tr>
-						<td>02</td>
+						<td>2</td>
 						<td>Ray</td>
+						<td>ini rincian</td>
 						<td><button class="edit">Edit</button><button class="checkout">Delete</button></td>
 					</tr>
 					<tr>
-						<td>03</td>
+						<td>3</td>
 						<td>BodyPack</td>
+						<td>ini rincian</td>
+						<td><button class="edit">Edit</button><button class="checkout">Delete</button></td>
+					</tr>
+					<tr>
+						<td>4</td>
+						<td>BodyPack</td>
+						<td>ini rincian</td>
 						<td><button class="edit">Edit</button><button class="checkout">Delete</button></td>
 					</tr>
 				</table>
@@ -75,16 +91,16 @@
 				<div class="modal-middle">
 					<div>
 						<label>Nama Merk</label><br>
-						<input type="text" name="">
+						<input type="text" name="" id="nama_merk">
 					</div><br>
 					<div>
 						<label>Rincian</label><br>
-						<textarea></textarea>
+						<textarea id="rincian"></textarea>
 					</div><br>
 				</div>
 
 				<div class="modal-bottom">
-					<button class="pilihan">Simpan</button>
+					<button type="button" id="simpan" class="pilihan">Simpan</button>
 				</div>
 			</form>
 		</div>
@@ -93,6 +109,7 @@
 	<script src="js/jquery-3.3.1.min.js"></script>
 	<script src="js/modal.js"></script>
 	<script type="text/javascript">
+		var no = 4;
 		$("#open_modal").click(function(event) {
 			event.preventDefault();
 			modalShow();
@@ -107,6 +124,24 @@
 					modalHide();
 				}
 			};
+			
+		});
+
+		$(".modal-bottom").on("click", "#simpan", function (argument) {
+			var merk = $("input#nama_merk").val();
+			var rincian = $("textarea#rincian").val();
+			no+=1; 
+			$("#table_merk").append(`
+				<tr>
+					<td>`+no+`</td>
+					<td>`+merk+`</td>
+					<td>`+rincian+`</td>
+					<td><button class="edit">Edit</button><button class="checkout">Delete</button></td>
+				</tr>
+			`);
+			$("input#nama_merk").val("");
+			$("textarea#rincian").val("");
+			modalHide();
 			
 		});
 	</script>
